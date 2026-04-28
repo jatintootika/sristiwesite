@@ -10,7 +10,6 @@
 </head>
 <body>
     
-    <!-- 🎵 AUDIO TAG 🎵 -->
     <audio id="bgMusic" loop autoplay muted playsinline preload="auto">
         <source src="assets/music/ishq-wala-love.mp3" type="audio/mpeg">
     </audio>
@@ -30,7 +29,26 @@
         </div>
         
         <div class="gifts-grid">
-            <div class="gift-card"><div class="gift-icon">📸</div><h3>Memory Gallery</h3><p>Our beautiful moments together</p><div style="background:rgba(255,255,255,0.05);border:2px dashed rgba(255,107,157,0.2);border-radius:15px;height:150px;display:flex;align-items:center;justify-content:center;color:#c0a0d0;font-size:0.9rem;">📷 Add Your Photos Here</div></div>
+            
+            <!-- Memory Gallery with Photo Upload -->
+            <div class="gift-card">
+                <div class="gift-icon">📸</div>
+                <h3>Memory Gallery</h3>
+                <p>Our beautiful moments together</p>
+                <div class="photo-upload-container">
+                    <div class="photo-preview" id="photoPreview">
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <span class="upload-icon">📷</span>
+                            <p>Click to Add Photo</p>
+                            <p style="font-size:0.7rem;opacity:0.6;">(Sristi ke saath apni photo lagao)</p>
+                        </div>
+                        <img id="uploadedPhoto" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:20px;" alt="Jatin & Sristi">
+                    </div>
+                    <input type="file" id="photoInput" accept="image/*" style="display:none;">
+                    <button class="btn-upload" id="uploadBtn">📸 Choose Photo</button>
+                    <button class="btn-remove" id="removeBtn" style="display:none;">🗑️ Remove</button>
+                </div>
+            </div>
             
             <div class="gift-card"><div class="gift-icon">🎵</div><h3>Sristi's Love Playlist</h3><p>Songs that remind me of you</p>
                 <div style="text-align:left;">
