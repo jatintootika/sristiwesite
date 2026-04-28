@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise | Jatin ❤️ Sristi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- 🎵 AUDIO TAG 🎵 -->
+    <audio id="bgMusic" loop autoplay muted playsinline preload="auto">
+        <source src="assets/music/ishq-wala-love.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Home"><span>🏠</span></a>
+        <a href="sorry.html" class="nav-dot" title="Sorry Letters"><span>💌</span></a>
+        <a href="surprise.html" class="nav-dot active" title="Surprise"><span>🎁</span></a>
+    </div>
+    
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">🎁 Surprises for Sristi 🎁</h1>
+            <p class="page-subtitle">Because you deserve the whole world...</p>
+        </div>
+        
+        <div class="gifts-grid">
+            <div class="gift-card"><div class="gift-icon">📸</div><h3>Memory Gallery</h3><p>Our beautiful moments together</p><div style="background:rgba(255,255,255,0.05);border:2px dashed rgba(255,107,157,0.2);border-radius:15px;height:150px;display:flex;align-items:center;justify-content:center;color:#c0a0d0;font-size:0.9rem;">📷 Add Your Photos Here</div></div>
+            
+            <div class="gift-card"><div class="gift-icon">🎵</div><h3>Sristi's Love Playlist</h3><p>Songs that remind me of you</p>
+                <div style="text-align:left;">
+                    <div style="padding:10px 15px;background:rgba(255,255,255,0.03);border-radius:10px;margin:8px 0;font-size:0.85rem;color:#c0a0d0;">🎶 Ishq Wala Love</div>
+                    <div style="padding:10px 15px;background:rgba(255,255,255,0.03);border-radius:10px;margin:8px 0;font-size:0.85rem;color:#c0a0d0;">🎶 Tum Hi Ho - Arijit Singh</div>
+                    <div style="padding:10px 15px;background:rgba(255,255,255,0.03);border-radius:10px;margin:8px 0;font-size:0.85rem;color:#c0a0d0;">🎶 Kaun Tujhe - Amaal Malik</div>
+                </div>
+            </div>
+            
+            <div class="gift-card"><div class="gift-icon">💍</div><h3>My Promises</h3><p>Words I'll live by</p>
+                <div style="text-align:left;">
+                    <div style="padding:12px 15px;margin:8px 0;border-left:3px solid #ff6b9d;background:rgba(255,255,255,0.02);border-radius:0 10px 10px 0;font-size:0.9rem;color:#c0a0d0;">💎 Always be loyal</div>
+                    <div style="padding:12px 15px;margin:8px 0;border-left:3px solid #ff6b9d;background:rgba(255,255,255,0.02);border-radius:0 10px 10px 0;font-size:0.9rem;color:#c0a0d0;">🌟 Support your dreams</div>
+                    <div style="padding:12px 15px;margin:8px 0;border-left:3px solid #ff6b9d;background:rgba(255,255,255,0.02);border-radius:0 10px 10px 0;font-size:0.9rem;color:#c0a0d0;">👑 Treat you like a queen</div>
+                </div>
+            </div>
+            
+            <div class="gift-card"><div class="gift-icon">⏳</div><h3>Time Since I Fell For You</h3>
+                <div class="love-timer" id="loveTimer">
+                    <div class="timer-unit"><span class="timer-number" id="days">0</span><span class="timer-label">Days</span></div>
+                    <div class="timer-unit"><span class="timer-number" id="hours">0</span><span class="timer-label">Hours</span></div>
+                    <div class="timer-unit"><span class="timer-number" id="minutes">0</span><span class="timer-label">Minutes</span></div>
+                    <div class="timer-unit"><span class="timer-number" id="seconds">0</span><span class="timer-label">Seconds</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align:center;margin:60px 0;">
+            <h2 style="font-family:'Dancing Script',cursive;font-size:2rem;color:#ffb8d0;margin-bottom:20px;">🌟 A Special Message from Jatin 🌟</h2>
+            <div class="message-box"><p>Sristi, I know I'm not perfect. I make mistakes. But one thing I can promise — <strong>I'll never stop loving you.</strong></p><p>Tu meri zindagi ka best part hai. Sorry for all my mistakes. <strong>I love you more than anything in this world.</strong> 💝</p><p class="signature">— Your Jatin, Forever & Always 💋</p></div>
+        </div>
+        
+        <div class="final-heart">
+            <button class="big-heart-btn" id="bigHeart">💝</button>
+            <p class="click-hint">Click the heart! 💕</p>
+            <div class="heart-explosion" id="heartExplosion"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const loveStartDate = new Date('2024-01-01');
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - loveStartDate;
+            document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        document.getElementById('bigHeart').addEventListener('click', function() {
+            const explosion = document.getElementById('heartExplosion');
+            explosion.innerHTML = '';
+            for (let i = 0; i < 80; i++) {
+                const heart = document.createElement('span');
+                heart.textContent = '💝';
+                heart.style.cssText = 'position:absolute;font-size:1.5rem;animation:explode 1.5s ease-out forwards;--x:' + ((Math.random() - 0.5) * 300) + 'px;--y:' + ((Math.random() - 0.5) * 300) + 'px;animation-delay:' + (Math.random() * 0.5) + 's;';
+                explosion.appendChild(heart);
+            }
+        });
+    </script>
+    <style>
+        @keyframes explode { 0% { transform: translate(0, 0) scale(1); opacity:1; } 100% { transform: translate(var(--x), var(--y)) scale(0); opacity:0; } }
+    </style>
+</body>
+</html>

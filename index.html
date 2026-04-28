@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatin ❤️ Sristi - I'm Sorry</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <canvas id="bg-canvas"></canvas>
+    
+    <div class="nav-dots">
+        <a href="index.html" class="nav-dot active" title="Home"><span>🏠</span></a>
+        <a href="sorry.html" class="nav-dot" title="Sorry Letters"><span>💌</span></a>
+        <a href="surprise.html" class="nav-dot" title="Surprise"><span>🎁</span></a>
+    </div>
+    
+    <div class="music-toggle" id="musicToggle">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- 🎵 AUDIO TAG 🎵 -->
+    <audio id="bgMusic" loop autoplay muted playsinline preload="auto">
+        <source src="assets/music/ishq-wala-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-container">
+        
+        <section class="hero-section">
+            <div class="floating-ring ring-1"></div>
+            <div class="floating-ring ring-2"></div>
+            <div class="floating-ring ring-3"></div>
+            
+            <h1 class="floating-name">SRISTI</h1>
+            
+            <div class="subtitle-container">
+                <p class="subtitle">~ My Beautiful Universe ~</p>
+            </div>
+            
+            <div class="typing-container">
+                <span id="typed-text"></span><span class="cursor-blink">|</span>
+            </div>
+            
+            <div class="hero-quote">
+                <p>"Tumse milne ke baad samjha... <br> zindagi mein kuch log special kyun hote hain"</p>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="sorry.html" class="btn btn-primary">
+                    <i class="fas fa-heart"></i> Read My Sorry Letters
+                </a>
+                <a href="surprise.html" class="btn btn-secondary">
+                    <i class="fas fa-gift"></i> Open Surprise
+                </a>
+            </div>
+        </section>
+        
+        <section class="love-stats">
+            <div class="stat-card">
+                <div class="stat-icon">💕</div>
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Sorry Bolna Baaki Hai</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💖</div>
+                <div class="stat-number" data-target="365">0</div>
+                <div class="stat-label">Din Yaad Aati Ho</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💝</div>
+                <div class="stat-number" data-target="99">0</div>
+                <div class="stat-label">% True Love</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🫶</div>
+                <div class="stat-number" data-target="1">0</div>
+                <div class="stat-label">Sristi (Only One)</div>
+            </div>
+        </section>
+        
+        <section class="quick-sorry">
+            <h2 class="section-heading">🌸 Tu Hi Mera Sab Kuch Hai 🌸</h2>
+            <div class="sorry-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-card"><span class="card-emoji">😔</span><p>Sristi, I know I messed up badly...</p></div>
+                    <div class="carousel-card"><span class="card-emoji">💔</span><p>Tere bina Jatin adhura hai</p></div>
+                    <div class="carousel-card"><span class="card-emoji">🥺</span><p>Please ek baar maaf karde baby</p></div>
+                    <div class="carousel-card"><span class="card-emoji">💝</span><p>Tu meri duniya hai Sristi</p></div>
+                    <div class="carousel-card"><span class="card-emoji">🫶</span><p>I promise to be better for you</p></div>
+                    <div class="carousel-card"><span class="card-emoji">😔</span><p>Sristi, I know I messed up badly...</p></div>
+                    <div class="carousel-card"><span class="card-emoji">💔</span><p>Tere bina Jatin adhura hai</p></div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 35;
+        
+        const ambientLight = new THREE.AmbientLight(0xff6b9d, 0.4);
+        scene.add(ambientLight);
+        const pointLight1 = new THREE.PointLight(0xc44dff, 0.8, 100);
+        pointLight1.position.set(10, 10, 30);
+        scene.add(pointLight1);
+        const pointLight2 = new THREE.PointLight(0xff6b9d, 0.6, 100);
+        pointLight2.position.set(-10, -10, 20);
+        scene.add(pointLight2);
+        
+        function createHeartShape() {
+            const shape = new THREE.Shape();
+            shape.moveTo(0, 0.5);
+            shape.bezierCurveTo(0, 1.5, -2, 1.5, -2, 0.5);
+            shape.bezierCurveTo(-2, -1, 0, -1.5, 0, -2.5);
+            shape.bezierCurveTo(0, -1.5, 2, -1, 2, 0.5);
+            shape.bezierCurveTo(2, 1.5, 0, 1.5, 0, 0.5);
+            return shape;
+        }
+        
+        const heartShape = createHeartShape();
+        const hearts = [];
+        for (let i = 0; i < 80; i++) {
+            const geometry = new THREE.ExtrudeGeometry(heartShape, { depth: 0.3, bevelEnabled: true, bevelThickness: 0.15, bevelSize: 0.15 });
+            const hue = Math.random() * 0.15 + 0.9;
+            const material = new THREE.MeshPhongMaterial({
+                color: new THREE.Color().setHSL(hue, 0.8, 0.6 + Math.random() * 0.3),
+                emissive: new THREE.Color().setHSL(hue, 0.5, 0.15),
+                shininess: 120, transparent: true, opacity: 0.6 + Math.random() * 0.4
+            });
+            const heart = new THREE.Mesh(geometry, material);
+            heart.position.set((Math.random() - 0.5) * 60, (Math.random() - 0.5) * 60, (Math.random() - 0.5) * 25);
+            heart.rotation.set(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2);
+            const scale = 0.2 + Math.random() * 2;
+            heart.scale.set(scale, scale, scale);
+            heart.userData = {
+                rotSpeedX: (Math.random() - 0.5) * 0.008, rotSpeedY: (Math.random() - 0.5) * 0.008, rotSpeedZ: (Math.random() - 0.5) * 0.008,
+                floatSpeed: 0.001 + Math.random() * 0.006, floatAmplitude: 0.5 + Math.random() * 3,
+                initialY: heart.position.y, phase: Math.random() * Math.PI * 2
+            };
+            hearts.push(heart);
+            scene.add(heart);
+        }
+        
+        const starsGeometry = new THREE.BufferGeometry();
+        const starsCount = 800;
+        const starsPositions = new Float32Array(starsCount * 3);
+        for (let i = 0; i < starsCount * 3; i += 3) {
+            starsPositions[i] = (Math.random() - 0.5) * 80;
+            starsPositions[i + 1] = (Math.random() - 0.5) * 80;
+            starsPositions[i + 2] = (Math.random() - 0.5) * 40;
+        }
+        starsGeometry.setAttribute('position', new THREE.BufferAttribute(starsPositions, 3));
+        const starsMaterial = new THREE.PointsMaterial({ color: 0xffb8d0, size: 0.12, transparent: true, blending: THREE.AdditiveBlending });
+        const stars = new THREE.Points(starsGeometry, starsMaterial);
+        scene.add(stars);
+        
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => { mouseX = (e.clientX / window.innerWidth - 0.5) * 2; mouseY = (e.clientY / window.innerHeight - 0.5) * 2; });
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = Date.now() * 0.001;
+            hearts.forEach((heart) => {
+                const d = heart.userData;
+                heart.rotation.x += d.rotSpeedX; heart.rotation.y += d.rotSpeedY; heart.rotation.z += d.rotSpeedZ;
+                heart.position.y = d.initialY + Math.sin(time * d.floatSpeed + d.phase) * d.floatAmplitude;
+            });
+            stars.rotation.x += 0.0001; stars.rotation.y += 0.0002;
+            camera.position.x += (mouseX * 4 - camera.position.x) * 0.03;
+            camera.position.y += (-mouseY * 3 - camera.position.y) * 0.03;
+            camera.lookAt(0, 0, 0);
+            pointLight1.position.x = Math.sin(time * 0.4) * 15;
+            pointLight1.position.y = Math.cos(time * 0.3) * 15;
+            pointLight2.position.x = Math.cos(time * 0.5) * -12;
+            pointLight2.position.y = Math.sin(time * 0.4) * -12;
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+    </script>
+</body>
+</html>
