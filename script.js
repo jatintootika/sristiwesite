@@ -31,7 +31,7 @@ if (toggle && bgm) {
 // TYPEWRITER
 const typedEl = document.getElementById('typed-text');
 if (typedEl) {
-    const texts = ["I'm sorry, Divyanka... 💔", "Please forgive me... 🥺", "You're my everything... 💝", "Your Jatin loves you... ❤️", "Maaf karde baby... 🫶🏻"];
+    const texts = ["I'm sorry, Sristi... 💔", "Please forgive me... 🥺", "You're my everything... 💝", "Your Jatin loves you... ❤️", "Maaf karde baby... 🫶🏻"];
     let i = 0, j = 0, del = false;
     function type() {
         const txt = texts[i];
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!photoPreview || !photoInput) return;
     
-    const savedPhoto = localStorage.getItem('divyankaMemoryPhoto');
+    const savedPhoto = localStorage.getItem('sristiMemoryPhoto');
     if (savedPhoto) {
         uploadedPhoto.src = savedPhoto;
         uploadedPhoto.style.display = 'block';
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const reader = new FileReader();
         reader.onload = function(event) {
             const imageData = event.target.result;
-            try { localStorage.setItem('divyankaMemoryPhoto', imageData); }
+            try { localStorage.setItem('sristiMemoryPhoto', imageData); }
             catch(e) { alert('⚠️ Storage full! Chhoti photo try karo.'); return; }
             uploadedPhoto.src = imageData;
             uploadedPhoto.style.display = 'block';
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     removeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (confirm('Sach mein photo hatani hai? 🥺')) {
-            localStorage.removeItem('divyankaMemoryPhoto');
+            localStorage.removeItem('sristiMemoryPhoto');
             uploadedPhoto.style.display = 'none'; uploadedPhoto.src = '';
             uploadPlaceholder.style.display = 'block';
             removeBtn.style.display = 'none'; uploadBtn.textContent = '📸 Choose Photo';
